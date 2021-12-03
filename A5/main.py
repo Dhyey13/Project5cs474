@@ -3,22 +3,22 @@ from Environment import Environment
 from Interpreter import Interpreter
 from Name import Name
 
-class Program:
+class main:
 
     # 474
     # integer constant
     # Similar to p1 in professor's version
     p1 = Expression.IntConstant(474)
 
-    # 400 + (70 + 4)
+    # 400 + (10 * 4)
     # binary operations
     # Similar to p2 in professor's version
     p2 = Expression.BinOpExpression(
         Expression.BinOpExpression.Operation.PLUS,
         Expression.IntConstant(400),
         Expression.BinOpExpression(
-            Expression.BinOpExpression.Operation.PLUS,
-            Expression.IntConstant(70),
+            Expression.BinOpExpression.Operation.TIMES,
+            Expression.IntConstant(10),
             Expression.IntConstant(4)
         )
     )
@@ -47,15 +47,15 @@ class Program:
             )
         )
     )
-    # (let divisor = 0 in (divisor == 0))
+    # (let divisor = 1 in (divisor == 1))
     # Comparison
     # Similar to p8 in professor's version
     p4 = Expression.LetExpression(
         Name("divisor"),
-        Expression.IntConstant(0),
+        Expression.IntConstant(1),
         Expression.EqExpression(
             Expression.VariableExpression(Name("divisor")),
-            Expression.IntConstant(0)
+            Expression.IntConstant(1)
         )
     )
 
@@ -129,6 +129,6 @@ class Program:
     @staticmethod
     def main():
         environment = Environment(None, None)
-        print(Interpreter().eval(Program.p6, environment, {}))
+        print(Interpreter().eval(main.p2, environment, {}))
 
-Program.main()
+main.main()

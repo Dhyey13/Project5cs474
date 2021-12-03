@@ -22,10 +22,4 @@ class Value:
     class FunctionValue:
             def __init__(self, pyFunction):
                 self.pyFunction = pyFunction
-        
-    class Closure:
-            def __init__(self, capturedEnvironment, formalArguments, functionBody):
-                self.capturedEnvironment = capturedEnvironment
-                self.formalArguments = formalArguments
-                self.functionBody = functionBody
 

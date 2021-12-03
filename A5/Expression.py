@@ -47,5 +47,5 @@ class Expression:
     # function call expression
     class FunctionCallExpression:
         def __init__(self, name, actualArguments):
-            self.name = name;
-            self.actualArguments = actualArguments;
+            self.name = name
+            self.actualArguments = actualArguments
